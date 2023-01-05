@@ -1,3 +1,37 @@
+# Demo - Taller de Laravel
+Hecho por Rafael Morales para el ExDev
+
+## Instalacion
+### Requerimientos
+Se necesita PHP, Composer, Node, y un par de componentes de PHP:
+
+```shell
+sudo apt install php php-xml php-dom php-mysql
+```
+
+### Pasos para montar
+Debes descargar los paquetes con los que funciona el framework via composer, y paquetes de node via npm, de la siguiente forma:
+
+```shell
+composer install
+npm i
+```
+
+Aparte, tienes que poder montar tu ambiente de trabajo con un archivo .env
+Para esto, utiliza el archivo de ejemplo `.env.example` como base:
+
+```shell
+cp .env.example .env
+php artisan key:generate
+```
+
+Con esto, generaras un archivo .env por defecto, y lo poblaras con la llave de la app (una medida de seguridad de Laravel).
+A partir de aqui, solo necesitas servir tu app, y seguir los pasos del taller!
+
+```shell
+php artisan serve
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
