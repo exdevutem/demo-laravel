@@ -32,6 +32,19 @@ A partir de aqui, solo necesitas servir tu app, y seguir los pasos del taller!
 php artisan serve
 ```
 
+### Datos de prueba
+Se creó una clase adicional para sedear un usuario de prueba con una cantidad al azar entre 1 y 3 mascotas.
+Para poder sedearlo, corre el siguiente comando:
+
+```shell
+php artisan db:seed TestUserSeeder
+```
+
+Los datos de este usuario son:
+- email: test@example.com
+- password: password
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
