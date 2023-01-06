@@ -43,4 +43,33 @@ class PetsTests extends TestCase
         // El usuario ve almenos a 1 de sus mascotas en la lista
         $response->assertSeeText($pet->name);
     }
+
+    public function test_user_can_see_their_own_pets()
+    {
+        $pet = $this->user->pets()->first();
+        $response = $this->actingAs($this->user)->get('/pets/' . $pet->id);
+
+        $response->assertOk();
+        $response->assertSeeText($pet->name);
+    }
+
+    public function test_users_cant_see_other_peoples_pets()
+    {
+        $user = User::factory()->hasPets(1)->create();
+
+        $response = $this->actingAs($this->user)->get('/pets/' . $user->pets()->first()->id);
+
+        $response->assertUnauthorized();
+    }
+
+    public function test_user_can_add_new_pet()
+    {
+        $response = $this->actingAs($this->user)->post('/pets', [
+            'name' => 'Firulais',
+            'last_bathed' => fake()->dateTimeThisMonth(),
+        ]);
+
+        $response->assertRedirect('/pets');
+        $response->assertSessionHas('message');
+    }
 }
